@@ -39,3 +39,41 @@ Một loại hệ quản trị cơ sở dữ liệu khác có thể sử dụng 
 Vì vậy, chúng ta đã xem xét ngắn gọn ba loại hệ quản trị cơ sở dữ liệu phổ biến: hệ quản trị cơ sở dữ liệu quan hệ như SQL Server hoặc Postgres, hệ quản trị cơ sở dữ liệu không có lược đồ như MongoDB, và hệ quản trị cơ sở dữ liệu lưu trữ cặp giá trị tên như Redis.
 
 
+Hãy xem xét tầm quan trọng của một hệ quản trị cơ sở dữ liệu đồ thị. Neo4j là một hệ quản trị cơ sở dữ liệu đồ thị, loại hệ quản trị này dựa trên cấu trúc dữ liệu đồ thị. Tất cả các nền tảng mạng xã hội như Twitter, Facebook và Instagram đều sử dụng cơ sở dữ liệu đồ thị. Như chúng ta đều biết, các nền tảng này có hàng triệu người dùng. Hệ quản trị cơ sở dữ liệu quan hệ sẽ không phải là lựa chọn lý tưởng duy nhất để lưu trữ dữ liệu như vậy vì cách dữ liệu được cấu trúc sẽ yêu cầu nhiều phép nối giữa các thực thể khi dữ liệu liên quan được truy xuất, điều này sẽ làm chậm quá trình truy xuất dữ liệu một cách đáng kể, cuối cùng gây ra trải nghiệm người dùng kém vì toàn bộ hệ thống bị chậm lại bởi các phép nối này.
+
+Khi thiết kế một hệ thống cụ thể như một nền tảng mạng xã hội, bạn có thể tích hợp cả hệ quản trị cơ sở dữ liệu đồ thị và hệ quản trị cơ sở dữ liệu quan hệ vào thiết kế tổng thể của hệ thống. Loại giải pháp này có thể kết hợp tính toàn vẹn dữ liệu được củng cố vốn có trong các hệ quản trị cơ sở dữ liệu quan hệ với các mối quan hệ phức tạp giữa các thực thể dữ liệu hoặc nút có thể được tạo điều kiện thông qua một hệ quản trị cơ sở dữ liệu đồ thị. Ví dụ, cơ sở dữ liệu chính có thể là một cơ sở dữ liệu quan hệ, nơi các vấn đề về tính toàn vẹn dữ liệu và sự trùng lặp dữ liệu được giải quyết bởi các lợi ích vốn có mà chúng ta đã thảo luận về hệ quản trị cơ sở dữ liệu quan hệ.
+
+Một hệ quản trị cơ sở dữ liệu đồ thị được đồng bộ hóa một cách thích hợp với hệ quản trị cơ sở dữ liệu quan hệ có liên quan có thể được sử dụng để tăng tốc độ truy xuất dữ liệu, ví dụ, có các mối quan hệ phức tạp. Nếu dữ liệu yêu cầu các mối quan hệ phức tạp được truy xuất trực tiếp từ hệ quản trị cơ sở dữ liệu quan hệ, các phép nối cần thiết khi truy xuất dữ liệu liên quan có thể làm chậm hệ thống một cách đáng kể và cuối cùng dẫn đến trải nghiệm người dùng rất kém. Vì vậy, bằng cách bao gồm một hệ quản trị cơ sở dữ liệu đồ thị trong hệ thống tổng thể, nó có thể nằm trên hệ quản trị cơ sở dữ liệu quan hệ và được sử dụng để tăng tốc độ truy xuất dữ liệu với các mối quan hệ phức tạp, điều này có thể tăng tốc quá trình truy xuất dữ liệu một cách đáng kể, dẫn đến trải nghiệm người dùng tốt hơn nhiều.
+
+Loại hệ thống này sẽ yêu cầu dữ liệu được lưu trữ trong hệ quản trị cơ sở dữ liệu đồ thị liên quan và hệ quản trị cơ sở dữ liệu quan hệ liên quan phải được đồng bộ hóa để đảm bảo rằng dữ liệu nhất quán giữa hai hệ quản trị cơ sở dữ liệu khác nhau. Hệ quản trị cơ sở dữ liệu, vì vậy một hệ thống được thiết kế đúng cách có thể tận dụng lợi ích của cả hai loại hệ quản trị cơ sở dữ liệu. Đối với cấu trúc dữ liệu dựa trên đồ thị, một hệ quản trị cơ sở dữ liệu tập trung vào việc tạo điều kiện cho các mối quan hệ giữa các thực thể hoặc các nút là rất cần thiết. Một hệ quản trị cơ sở dữ liệu đồ thị cung cấp một cách để lưu trữ dữ liệu dựa trên cấu trúc dữ liệu đồ thị, lý tưởng cho các ứng dụng sử dụng dữ liệu mà các thực thể có nhiều mối quan hệ và mối quan hệ phức tạp với nhau.
+
+Hãy nghĩ về các nền tảng mạng xã hội, nơi bạn có các mối quan hệ giữa người dùng và bài đăng, lượt thích, tình bạn, v.v., và có hàng triệu người sử dụng các nền tảng này. Một hệ quản trị cơ sở dữ liệu là cần thiết để tạo điều kiện lưu trữ dữ liệu cho một số lượng lớn các loại mối quan hệ khác nhau. Một hệ quản trị cơ sở dữ liệu đồ thị cho phép lưu trữ các mối quan hệ dưới dạng dữ liệu trong cơ sở dữ liệu đồ thị. Với một hệ quản trị cơ sở dữ liệu quan hệ, trọng tâm là các thực thể và nói chung, các mối quan hệ giữa các thực thể không được lưu trữ trong cơ sở dữ liệu mà các mối quan hệ tổng quát được thiết lập ở cấp độ thiết kế.
+
+Ví dụ, bạn có thể thấy qua giá trị của trường khóa ngoại rằng nhân viên là thành viên của phòng nhân sự, nhưng không có chi tiết nào về bản thân mối quan hệ giữa phòng ban liên quan và nhân viên được lưu trong cơ sở dữ liệu. Đây là điều bạn có thể dễ dàng thực hiện trong một hệ quản trị cơ sở dữ liệu đồ thị, nơi bạn có thể tạo ra một mối quan hệ chi tiết hơn.
+
+Bạn có thể dễ dàng lưu trữ dữ liệu về các mối quan hệ cá nhân giữa các thực thể hoặc các nút, ví dụ, giữa một nút nhân viên và một nút phòng ban. Sau đây là một bài trình bày trên bảng trắng cho thấy cách các mối quan hệ giữa các nhân viên cá nhân và giữa các nhân viên và các phòng ban có thể được biểu diễn trong một cơ sở dữ liệu đồ thị.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Giới thiệu
+- So sánh: neo4j vs RDMS
+- Giới thiệu Cypher vs query SQL
+- Cách cài đặt Neo4j
+- cách dùng: CRUD
+
